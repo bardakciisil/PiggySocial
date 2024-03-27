@@ -43,10 +43,13 @@
 .searchInput {
   border: none;
   width: 70%;
+
+
 }
 
+
 .searchInput:focus {
-  outline: none;
+  outline:none;
 }
 
 .topbarRight {
