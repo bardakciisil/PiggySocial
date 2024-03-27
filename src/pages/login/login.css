@@ -105,6 +105,12 @@ input{
   cursor: pointer;
   
 }
+.submit:focus{
+  outline: none;
+}
+.submit:disabled{
+  cursor:not-allowed;
+}
 
 .Title{
   position: absolute;

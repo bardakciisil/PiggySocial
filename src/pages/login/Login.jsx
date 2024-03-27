@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { CircularProgress } from "@material-ui/core";
 
 
-const Login = () => {
+export default function Login() {
 
   const google = () => {
     window.open("https://accounts.google.com/v3/signin/identifier?hl=en-gb&ifkv=ARZ0qKKnpO-pC14soeKRMHZ0chRHGeiE58yTEWE-psUpmBfRqMoJ1k-DOU5o6xxJmoxZIiKUPkQ-jg&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S1661237144%3A1711108550851093&theme=mn&ddm=0");
@@ -57,19 +57,22 @@ const Login = () => {
             minLength="6"
             ref={password} 
            />
-          <button className="submit">
+          <button className="submit" disabled={isFetching}>
             {
             isFetching 
-            ? (<CircularProgress color="white" size="20px"/>) 
+            ? (<CircularProgress color="white" size="25px"/>) 
             : "Submit"
             }
             </button>
           <span className="Link">Forgot your Password ?</span>
-          <span className="Link">Create an account </span>       
+          <span className="Link" >            {
+            isFetching 
+            ? (<CircularProgress color="black" size="25px"/>) 
+            : "Create an account"
+            } </span>       
         </form>
       </div>
     </div>
   );
 };
 
-export default Login;
