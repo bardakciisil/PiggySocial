@@ -10,11 +10,11 @@ export default function Register() {
   const countryData  = Country.getAllCountries();
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [selectedCity, setSelectedCity] = useState(null);
-  const [ setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState('');
 
   const handleCountryChange = (selectedOption) => {
     setSelectedCountry(selectedOption);
-    setSelectedCity(null);
+    setSelectedCity();
     setInputValue(selectedOption.label);
   };
   const handleCityChange = (selectedOption) => {
@@ -46,9 +46,9 @@ export default function Register() {
     }else{
       const user = {
         username:username.current.value,
-        email:email.current.value,
         from:selectedCountry ? selectedCountry.value : "",
         city:selectedCity ? selectedCity.value : "",
+        email:email.current.value,
         password:password.current.value
       };
       try {
