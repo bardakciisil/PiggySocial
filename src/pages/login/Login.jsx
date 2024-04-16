@@ -3,6 +3,8 @@ import "./login.css";
 import {loginCall} from "../../apiCalls"
 import { AuthContext } from "../../context/AuthContext";
 import { CircularProgress } from "@material-ui/core";
+import {useNavigate} from "react-router-dom";
+
 
 
 export default function Login() {
@@ -14,9 +16,13 @@ export default function Login() {
   const github = () => {
     window.open("https://github.com/login");
   };
+  const handleRegisterClick = () => {
+    navigate("/register"); 
+  };
 
   const email = useRef();
   const password = useRef();
+  const navigate = useNavigate(); 
   const {user,isFetching,error,dispatch} = useContext(AuthContext);
 
   const handleClick = (e) => {
@@ -61,15 +67,13 @@ export default function Login() {
             {
             isFetching 
             ? (<CircularProgress color="white" size="25px"/>) 
-            : "Submit"
+            : "Log In"
             }
             </button>
           <span className="Link">Forgot your Password ?</span>
-          <span className="Link" >            {
-            isFetching 
-            ? (<CircularProgress color="black" size="25px"/>) 
-            : "Create an account"
-            } </span>       
+          <span className="Link" onClick={handleRegisterClick}> 
+            Create an account
+            </span>       
         </form>
       </div>
     </div>

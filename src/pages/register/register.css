@@ -60,6 +60,7 @@
   color: black;
   text-decoration: underline;
   padding-top: 15px;
+  cursor: pointer;
 }
 
 input {

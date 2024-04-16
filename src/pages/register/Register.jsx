@@ -10,7 +10,7 @@ export default function Register() {
   const countryData  = Country.getAllCountries();
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [selectedCity, setSelectedCity] = useState(null);
-  const [inputValue, setInputValue] = useState('');
+  const [, setInputValue] = useState('');
 
   const handleCountryChange = (selectedOption) => {
     setSelectedCountry(selectedOption);
@@ -59,6 +59,9 @@ export default function Register() {
   
 }}
   };
+  const handleLoginClick = () => {
+    navigate("/login"); 
+  };
  
 
   return (
@@ -93,8 +96,8 @@ export default function Register() {
 
           <input type="password" required minLength="6" ref={password} placeholder="Password" />
           <input type="password" required ref={confirmPassword} placeholder="Confirm Your Password" />
-          <button className="submit" type="submit">Sign Up</button>
-          <span className="Link">Login into Account </span>
+          <button className="submit" type="submit">Complete Registration</button>
+          <span className="Link" onClick={handleLoginClick}>Log in into Account </span>
         </div>
       </form>      
     </div>

@@ -41,7 +41,7 @@ export default function Profile() {
                 src={
                   user.profilePicture 
                   ? PF + user.profilePicture
-                  : PF  + "anonymous.png"
+                  : PF  + "noprofile.png"
                 }
                 alt=""
               />
